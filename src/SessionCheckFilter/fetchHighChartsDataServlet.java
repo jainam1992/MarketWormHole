@@ -51,7 +51,7 @@ public class fetchHighChartsDataServlet extends HttpServlet {
 					"cmpe295b");
 
 			stmt = conn.createStatement();
-			String query = "SELECT timestamp,score FROM messages.twitter LIMIT 50";
+			String query = "SELECT timestamp,score FROM messages.twitter WHERE symbol='AAPL' AND score != 0.0 AND timestamp > DATE_SUB(CURDATE(), INTERVAL 1 DAY)";
 			ResultSet rs = null;
 			rs = stmt.executeQuery(query);
 
