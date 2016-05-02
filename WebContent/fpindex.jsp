@@ -1,141 +1,291 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+<!-- start: Meta -->
 <meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Bootstrap Metro Dashboard by Jainam Shah for ARM demo</title>
+<meta name="description" content="Bootstrap Metro Dashboard">
+<meta name="author" content="Jainam Shah">
+<meta name="keyword"
+	content="Metro, Metro UI, Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
+<!-- end: Meta -->
+
+<!-- start: Mobile Specific -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="">
-<meta name="author" content="">
+<!-- end: Mobile Specific -->
 
-<title>Market Wormhole</title>
+<!-- start: CSS -->
+<link id="bootstrap-style" href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/bootstrap-responsive.min.css" rel="stylesheet">
+<link id="base-style" href="css/style.css" rel="stylesheet">
 
-<!-- Bootstrap Core CSS -->
-<link href="css/fpbootstrap.min.css" rel="stylesheet">
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+<link id="base-style-responsive" href="css/style-responsive.css"
+	rel="stylesheet">
+<link
+	href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800&subset=latin,cyrillic-ext,latin-ext'
+	rel='stylesheet' type='text/css'>
+<!-- end: CSS -->
 
-<!-- Custom CSS -->
-<link href="css/full-width-pics.css" rel="stylesheet">
 
-<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!-- The HTML5 shim, for IE6-8 support of HTML5 elements -->
 <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+	  	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<link id="ie-style" href="css/ie.css" rel="stylesheet">
+	<![endif]-->
+
+<!--[if IE 9]>
+		<link id="ie9style" href="css/ie9.css" rel="stylesheet">
+	<![endif]-->
+
+<!-- start: Favicon -->
+<link rel="shortcut icon" href="img/favicon.ico">
+<!-- end: Favicon -->
+
+
+
 
 </head>
 
 <body>
+	<div class="navbar">
+		<div class="navbar-inner">
+			<div class="container-fluid">
+				<a class="btn btn-navbar" data-toggle="collapse"
+					data-target=".top-nav.nav-collapse,.sidebar-nav.nav-collapse">
+					<span class="icon-bar"></span> <span class="icon-bar"></span> <span
+					class="icon-bar"></span>
+				</a> <a class="brand" href="fpindex.jsp"><span>Market Wormhole</span></a>
 
-	<!-- Navigation -->
-	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-		<div class="container">
-			<!-- Brand and toggle get grouped for better mobile display -->
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle" data-toggle="collapse"
-					data-target="#bs-example-navbar-collapse-1">
-					<span class="sr-only">Toggle navigation</span> <span
-						class="icon-bar"></span> <span class="icon-bar"></span> <span
-						class="icon-bar"></span>
-				</button>
-				<a class="navbar-brand" href="#">Market Wormhole</a>
-			</div>
-			<!-- Collect the nav links, forms, and other content for toggling -->
-
-			<!-- /.navbar-collapse -->
-		</div>
-		<!-- /.container -->
-	</nav>
-
-	<!-- Full Width Image Header with Logo -->
-	<!-- Image backgrounds are set within the full-width-pics.css file. -->
-	<header class="image-bg-fixed-height">
-		<img class="img-responsive" src="" alt="">
-	</header>
-
-	<!-- Content Section -->
-	<section>
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-6">
-					<h1 class="section-heading">Market Wormhole</h1>
-					<p class="lead section-lead">Buy High and Sell Low</p>
-					<p class="section-paragraph">Predict Market Uncertainity</p>
-					<button type="button" class="btn btn-primary"
-						onclick="window.open('login.jsp')">View Prediction</button>
-
+				<!-- start: Header Menu -->
+				
+					<ul class="nav pull-right">	
+				<a href="login.jsp">						
+						
+						<button type="button" class="btn btn-success">Sign In / Register</button>
+											
+						
+					</a>
+					</ul>
 				</div>
+				<!-- end: Header Menu -->
 
-				<div class="col-lg-6">
-					<img
-						src="https://www.google.com/finance/getchart?q=AAPL&p=20Y&i=86400" />
-				</div>
 			</div>
 		</div>
-	</section>
+		
 
+    <!-- Page Content -->
+     <div class="container">   
+     <div class="row">
+            <div class="col-md-6">
+                <h1>About Market Wormhole</h1>
+                <p>Buy Low, Sell High</p>
+                <p><b><u>GAUGE REAL TIME SENTIMENT</u></b></p>
 
-	<section>
-		<div class="container">
-			<div class="row">
-				<div class="col-md-12">
-
-					<!-- TradingView Widget BEGIN -->
-					<div id="tv-medium-widget-d4ecc"></div>
-					<script type="text/javascript"
-						src="https://d33t3vvu2t2yu5.cloudfront.net/tv.js"></script>
-					<script type="text/javascript">
-new TradingView.MediumWidget({
-  "container_id": "tv-medium-widget-d4ecc",
-  "symbols": [
-    [
-      "Apple",
-      "AAPL "
-    ],
-    [
-      "Google",
-      "GOOGL"
-    ],
-    [
-      "Yahoo!",
-      "YHOO"
-    ]
+<p>Check the level of bullishness and bearishness around a stock before you make your next investment.</p>
+                
+                <p>Want to know stock prediction.? Click on button below</p>
+                                <a href="login.jsp">
+                <button type="button" class="btn btn-primary"
+						>View Prediction</button></a>
+            </div>
+            <hr>
+            <div class="col-md-6">
+                <!-- TradingView Widget BEGIN -->
+<div id="tv-miniwidget-eebe8"></div>
+<script type="text/javascript" src="https://d33t3vvu2t2yu5.cloudfront.net/tv.js"></script>
+<script type="text/javascript">
+new TradingView.MiniWidget({
+  "container_id": "tv-miniwidget-eebe8",
+  "tabs": [
+    "Equities",
+    "Commodities",
+    "Bonds",
+    "Forex"
   ],
+  "symbols": {
+    "Equities": [
+      [
+        "S&P500",
+        "SPX500"
+      ],
+      [
+        "NQ100",
+        "NAS100"
+      ],
+      [
+        "Dow30",
+        "DOWI"
+      ],
+      [
+        "Nikkei225",
+        "JPN225"
+      ],
+      [
+        "Apple",
+        "AAPL "
+      ],
+      [
+        "Google",
+        "GOOG"
+      ]
+    ],
+    "Commodities": [
+      [
+        "Emini",
+        "ES1!"
+      ],
+      [
+        "Euro",
+        "E61!"
+      ],
+      [
+        "Gold",
+        "GC1!"
+      ],
+      [
+        "Oil",
+        "CL1!"
+      ],
+      [
+        "Gas",
+        "NG1!"
+      ],
+      [
+        "Corn",
+        "ZC1!"
+      ]
+    ],
+    "Bonds": [
+      [
+        "Eurodollar",
+        "CME:GE1!"
+      ],
+      [
+        "T-Bond",
+        "CBOT:ZB1!"
+      ],
+      [
+        "Ultra T-Bond",
+        "CBOT:UD1!"
+      ],
+      [
+        "Euro Bund",
+        "FX:BUND"
+      ],
+      [
+        "Euro BTP",
+        "EUREX:II1!"
+      ],
+      [
+        "Euro BOBL",
+        "EUREX:HR1!"
+      ]
+    ],
+    "Forex": [
+      "FX:EURUSD",
+      "FX:GBPUSD",
+      "FX:USDJPY",
+      "FX:USDCHF",
+      "FX:AUDUSD",
+      "FX:USDCAD"
+    ]
+  },
   "gridLineColor": "#E9E9EA",
   "fontColor": "#83888D",
   "underLineColor": "#dbeffb",
   "trendLineColor": "#4bafe9",
-  "width": "1000px",
-  "height": "350px",
-  "tradeItWidget": false,
+  "activeTickerBackgroundColor": "#EDF0F3",
+  "large_chart_url": "https://www.tradingview.com/chart/",
+  "noGraph": false,
+  "width": "500px",
+  "height": "400px",
   "locale": "en"
 });
 </script>
-					<!-- TradingView Widget END -->
+<!-- TradingView Widget END -->
+                
+                
+            </div>
+        </div>	
+        
+        
+	</div>
+	
+	<footer class="footer navbar-fixed-bottom">
 
+		<p>
+			<span style="text-align: left; float: left">&copy; 2016 <a
+				href="http://themifycloud.com/downloads/janux-free-responsive-admin-dashboard-template/"
+				alt="Bootstrap_Metro_Dashboard">Market Wormhole Responsive
+					Dashboard</a></span>
 
-				</div>
+		</p>
 
-
-			</div>
-		</div>
-	</section>
-
-
-	<!-- Footer -->
-	<footer>
-		<div class="navbar navbar-default navbar-fixed-bottom">
-			<div class="container">
-				<p class="navbar-text pull-left">Copyright @ Market Wormhole
-					2016.</p>
-			</div>
-		</div>
 	</footer>
+	
 
-	<!-- jQuery -->
-	<script src="js/fpjquery.js"></script>
 
-	<!-- Bootstrap Core JavaScript -->
-	<script src="js/fpbootstrap.min.js"></script>
+	
+
+	<!-- start: JavaScript-->
+
+	<script src="js/jquery-1.9.1.min.js"></script>
+	<script src="js/jquery-migrate-1.0.0.min.js"></script>
+
+	<script src="js/jquery-ui-1.10.0.custom.min.js"></script>
+
+	<script src="js/jquery.ui.touch-punch.js"></script>
+
+	<script src="js/modernizr.js"></script>
+
+	<script src="js/bootstrap.min.js"></script>
+
+	<script src="js/jquery.cookie.js"></script>
+
+	<script src='js/fullcalendar.min.js'></script>
+
+	<script src='js/jquery.dataTables.min.js'></script>
+
+	<script src="js/excanvas.js"></script>
+	<script src="js/jquery.flot.js"></script>
+	<script src="js/jquery.flot.pie.js"></script>
+	<script src="js/jquery.flot.stack.js"></script>
+	<script src="js/jquery.flot.resize.min.js"></script>
+
+	<script src="js/jquery.chosen.min.js"></script>
+
+	<script src="js/jquery.uniform.min.js"></script>
+
+	<script src="js/jquery.cleditor.min.js"></script>
+
+	<script src="js/jquery.noty.js"></script>
+
+	<script src="js/jquery.elfinder.min.js"></script>
+
+	<script src="js/jquery.raty.min.js"></script>
+
+	<script src="js/jquery.iphone.toggle.js"></script>
+
+	<script src="js/jquery.uploadify-3.1.min.js"></script>
+
+	<script src="js/jquery.gritter.min.js"></script>
+
+	<script src="js/jquery.imagesloaded.js"></script>
+
+	<script src="js/jquery.masonry.min.js"></script>
+
+	<script src="js/jquery.knob.modified.js"></script>
+
+	<script src="js/jquery.sparkline.min.js"></script>
+
+	<script src="js/counter.js"></script>
+
+	<script src="js/retina.js"></script>
+
+	<script src="js/custom.js"></script>
+	<!-- end: JavaScript-->
 
 </body>
 

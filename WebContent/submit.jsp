@@ -20,4 +20,4 @@ String cpassword=request.getParameter("confirm-password");
         e.printStackTrace();
         }      
 %>
-<jsp:forward page="index.jsp"/>
+<jsp:forward page="login.jsp"/>

@@ -16,9 +16,9 @@
 <!-- end: Mobile Specific -->
 
 <!-- start: CSS -->
-<link id="bootstrap-style" href="css/fpbootstrap.min.css"
+<link id="bootstrap-style" href="css/bootstrap.min.css"
 	rel="stylesheet">
-<link id="bootstrap-style" href="css/fpbootstrap.css" rel="stylesheet">
+<link id="bootstrap-style" href="css/bootstrap.css" rel="stylesheet">
 <link href="css/bootstrap-responsive.min.css" rel="stylesheet">
 <link id="base-style" href="css/style.css" rel="stylesheet">
 <link rel="stylesheet"
@@ -33,27 +33,8 @@
 
 <body>
 
-	<!-- Navigation -->
-	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-		<div class="container">
-			<!-- Brand and toggle get grouped for better mobile display -->
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle" data-toggle="collapse"
-					data-target="#bs-example-navbar-collapse-1">
-					<span class="sr-only">Toggle navigation</span> <span
-						class="icon-bar"></span> <span class="icon-bar"></span> <span
-						class="icon-bar"></span>
-				</button>
-				<a class="navbar-brand" href="#">Market Wormhole</a>
-			</div>
-			<!-- Collect the nav links, forms, and other content for toggling -->
-
-			<!-- /.navbar-collapse -->
-		</div>
-		<!-- /.container -->
-	</nav>
-
-
+	<%@ include file="navBar.jsp" %>
+	
 	<div class="container">
 		<div class="row">
 			<div class="col-md-6 col-md-offset-3">
@@ -75,11 +56,11 @@
 								<form id="login-form" action="logincheck.jsp"
 									method="post" role="form" style="display: block;">
 									<div class="form-group">
-										<input type="text" name="username" id="username" tabindex="1"
+										<input type="text" name="username1" id="username1" tabindex="1"
 											class="form-control" placeholder="Username" value="">
 									</div>
 									<div class="form-group">
-										<input type="password" name="password" id="password"
+										<input type="password" name="password1" id="password1"
 											tabindex="2" class="form-control" placeholder="Password">
 									</div>
 									
@@ -129,7 +110,7 @@
 												<input type="submit" name="register-submit"
 													id="register-submit" tabindex="4"
 													class="form-control btn btn-register" value="Register Now"
-													style="width: 202px" >
+													style="width: 202px" onclick= "return registervalidate()" >
 											</div>
 										</div>
 									</div>
@@ -168,24 +149,60 @@
 	
 	function validate(){
 		
-		var username = document.getElementById("username").value;
-		var password = document.getElementById("password").value;
+		var username = document.getElementById("username1").value;
+		var password = document.getElementById("password1").value;
 		if ( username !="" && password != ""){
-		alert ("Login successfully");
+		//alert ("Login successfully");
 		//window.location.href = "index.jsp"; // Redirecting to other page.
-		//return false;
+		return true;
 		}
 		else{
 		//attempt --;// Decrementing by one.
-		alert("Please enter details");
+		alert("Please enter correct details");
 		return false;
 		}
+		}		
+		
+	function registervalidate(){
+		
+		
+		var username = document.getElementById("username").value;
+		var email = document.getElementById("email").value;
+		var password = document.getElementById("password").value;
+		var confirmpassword = document.getElementById("confirm-password").value;
+		var errorMsg = "";
+		
+				
+		if ( username =="" || username == null){
+			errorMsg += "Please enter username \n";
+		//window.location.href = "index.jsp"; // Redirecting to other page.
 		}
+		if(email== "" || email== null){
+			errorMsg += "Please enter email \n";
+		}
+		if(password =="" || password == null){
+			errorMsg += "Please enter password \n";
+		}
+		if(confirmpassword == "" || confirmpassword == null){
+			errorMsg += "Confirm Password \n";
+		}	
+		if(password!= confirmpassword){
+			errorMsg += "Password Mismatch \n";
+		}	
+	
+		if(errorMsg !== ""){
+		
+			alert(errorMsg);
+			return false;
+		
+		}
+		alert("RegistrationSuccessful");
+		return true;
+		
+	}
 		
 	</script>
-	<!-- end: JavaScript-->
-	
-	
+	<!-- end: JavaScript-->	
 
 </body>
 </html>

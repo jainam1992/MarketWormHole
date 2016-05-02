@@ -45,204 +45,98 @@
 
 <!--<jsp:include page="scoredisplay.jsp" /> -->
 <%@ page import="java.sql.ResultSet" %>
-<jsp:include page="logincheck.jsp" />
+<%-- <jsp:include page="logincheck.jsp" /> --%>
 
 <%@ page import ="java.sql.*" %>
 
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> 
+ 
 
+	<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
 
 </head>
 
 <body>
-	<!-- start: Header -->
-	<div class="navbar">
-		<div class="navbar-inner">
-			<div class="container-fluid">
-				<a class="btn btn-navbar" data-toggle="collapse"
-					data-target=".top-nav.nav-collapse,.sidebar-nav.nav-collapse">
-					<span class="icon-bar"></span> <span class="icon-bar"></span> <span
-					class="icon-bar"></span>
-				</a> <a class="brand" href="index.jsp"><span>Market Wormhole</span></a>
+	<%@ include file="navBar.jsp" %>
+<script>
+$.ajax({  
+ 		    type: "GET",  
+ 		    url: "fetchHighChartsDataServlet",  
+ 		    success: function(data){
+ 		    	console.log('hola',data);
 
-				<!-- start: Header Menu -->
-				<div class="nav-no-collapse header-nav">
-					<ul class="nav pull-right">
-						<li class="dropdown hidden-phone"><a
-							class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-								<i class="icon-bell"></i> <span class="badge red"> 7 </span>
-						</a>
-							<ul class="dropdown-menu notifications">
-								<li class="dropdown-menu-title"><span>You have 11
-										notifications</span> <a href="#refresh"><i class="icon-repeat"></i></a>
-								</li>
-								<li><a href="#"> <span class="icon blue"><i
-											class="icon-user"></i></span> <span class="message">New user
-											registration</span> <span class="time">1 min</span>
-								</a></li>
-								<li><a href="#"> <span class="icon green"><i
-											class="icon-comment-alt"></i></span> <span class="message">New
-											comment</span> <span class="time">7 min</span>
-								</a></li>
-								<li><a href="#"> <span class="icon green"><i
-											class="icon-comment-alt"></i></span> <span class="message">New
-											comment</span> <span class="time">8 min</span>
-								</a></li>
-								<li><a href="#"> <span class="icon green"><i
-											class="icon-comment-alt"></i></span> <span class="message">New
-											comment</span> <span class="time">16 min</span>
-								</a></li>
-								<li><a href="#"> <span class="icon blue"><i
-											class="icon-user"></i></span> <span class="message">New user
-											registration</span> <span class="time">36 min</span>
-								</a></li>
-								<li><a href="#"> <span class="icon yellow"><i
-											class="icon-shopping-cart"></i></span> <span class="message">2
-											items sold</span> <span class="time">1 hour</span>
-								</a></li>
-								<li class="warning"><a href="#"> <span class="icon red"><i
-											class="icon-user"></i></span> <span class="message">User
-											deleted account</span> <span class="time">2 hour</span>
-								</a></li>
-								<li class="warning"><a href="#"> <span class="icon red"><i
-											class="icon-shopping-cart"></i></span> <span class="message">New
-											comment</span> <span class="time">6 hour</span>
-								</a></li>
-								<li><a href="#"> <span class="icon green"><i
-											class="icon-comment-alt"></i></span> <span class="message">New
-											comment</span> <span class="time">yesterday</span>
-								</a></li>
-								<li><a href="#"> <span class="icon blue"><i
-											class="icon-user"></i></span> <span class="message">New user
-											registration</span> <span class="time">yesterday</span>
-								</a></li>
-								<li class="dropdown-menu-sub-footer"><a>View all
-										notifications</a></li>
-							</ul></li>
-						<!-- start: Notifications Dropdown -->
-						<li class="dropdown hidden-phone"><a
-							class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-								<i class="icon-calendar"></i> <span class="badge red"> 5
-							</span>
-						</a>
-							<ul class="dropdown-menu tasks">
-								<li class="dropdown-menu-title"><span>You have 17
-										tasks in progress</span> <a href="#refresh"><i
-										class="icon-repeat"></i></a></li>
-								<li><a href="#"> <span class="header"> <span
-											class="title">iOS Development</span> <span class="percent"></span>
-									</span>
-										<div class="taskProgress progressSlim red">80</div>
-								</a></li>
-								<li><a href="#"> <span class="header"> <span
-											class="title">Android Development</span> <span
-											class="percent"></span>
-									</span>
-										<div class="taskProgress progressSlim green">47</div>
-								</a></li>
-								<li><a href="#"> <span class="header"> <span
-											class="title">ARM Development</span> <span class="percent"></span>
-									</span>
-										<div class="taskProgress progressSlim yellow">32</div>
-								</a></li>
-								<li><a href="#"> <span class="header"> <span
-											class="title">ARM Development</span> <span class="percent"></span>
-									</span>
-										<div class="taskProgress progressSlim greenLight">63</div>
-								</a></li>
-								<li><a href="#"> <span class="header"> <span
-											class="title">ARM Development</span> <span class="percent"></span>
-									</span>
-										<div class="taskProgress progressSlim orange">80</div>
-								</a></li>
-								<li><a class="dropdown-menu-sub-footer">View all tasks</a>
-								</li>
-							</ul></li>
-						<!-- end: Notifications Dropdown -->
-						<!-- start: Message Dropdown -->
-						<li class="dropdown hidden-phone"><a
-							class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-								<i class="icon-envelope"></i> <span class="badge red"> 4
-							</span>
-						</a>
-							<ul class="dropdown-menu messages">
-								<li class="dropdown-menu-title"><span>You have 9
-										messages</span> <a href="#refresh"><i class="icon-repeat"></i></a></li>
-								<li><a href="#"> <span class="avatar"><img
-											src="img/avatar.jpg" alt="Avatar"></span> <span class="header">
-											<span class="from"> Jainam Shah </span> <span class="time">
-												6 min </span>
-									</span> <span class="message"> Lorem ipsum dolor sit amet
-											consectetur adipiscing elit, et al commore </span>
-								</a></li>
-								<li><a href="#"> <span class="avatar"><img
-											src="img/avatar.jpg" alt="Avatar"></span> <span class="header">
-											<span class="from"> Jainam Shah </span> <span class="time">
-												56 min </span>
-									</span> <span class="message"> Lorem ipsum dolor sit amet
-											consectetur adipiscing elit, et al commore </span>
-								</a></li>
-								<li><a href="#"> <span class="avatar"><img
-											src="img/avatar.jpg" alt="Avatar"></span> <span class="header">
-											<span class="from"> Jainam shah </span> <span class="time">
-												3 hours </span>
-									</span> <span class="message"> Lorem ipsum dolor sit amet
-											consectetur adipiscing elit, et al commore </span>
-								</a></li>
-								<li><a href="#"> <span class="avatar"><img
-											src="img/avatar.jpg" alt="Avatar"></span> <span class="header">
-											<span class="from"> Jainam Shah </span> <span class="time">
-												yesterday </span>
-									</span> <span class="message"> Lorem ipsum dolor sit amet
-											consectetur adipiscing elit, et al commore </span>
-								</a></li>
-								<li><a href="#"> <span class="avatar"><img
-											src="img/avatar.jpg" alt="Avatar"></span> <span class="header">
-											<span class="from"> Jainam Shah </span> <span class="time">
-												Jul 25, 2012 </span>
-									</span> <span class="message"> Lorem ipsum dolor sit amet
-											consectetur adipiscing elit, et al commore </span>
-								</a></li>
-								<li><a class="dropdown-menu-sub-footer">View all
-										messages</a></li>
-							</ul></li>
+$(document).ready(function() { 
+	alert(data)
+   var chart = {
+      type: 'spline'      
+   }; 
+   var title = {
+      text: 'Snow depth at Vikjafjellet, Norway'   
+   };
+   var subtitle = {
+      text: 'Irregular time data in Highcharts JS'
+   };
+   var xAxis = {
+      title: {
+         text: 'Date'
+      }
+   };
+   var yAxis = {
+      title: {
+         text: 'Snow depth (m)'
+      },
+      min: 0
+   };
+   var tooltip = {
+      headerFormat: '<b>{series.name}</b><br>',
+      pointFormat: '{point.x:%e. %b}: {point.y:.2f} m'
+   };
+   var plotOptions = {
+      spline: {
+         marker: {
+            enabled: true
+         }
+      }
+   };
+   var series= [{
+         name: 'Winter 2007-2008',
+            // Define the data points. All series have a dummy year
+            // of 1970/71 in order to be compared on the same x axis. Note
+            // that in JavaScript, months start at 0 for January, 1 for February etc.
+         data: [data[0],data[1]]
+      }
+   ];     
+      
+   var json = {};
+   json.chart = chart;
+   json.title = title;
+   json.subtitle = subtitle;
+   json.tooltip = tooltip;
+   json.xAxis = xAxis;
+   json.yAxis = yAxis;  
+   json.series = series;
+   json.plotOptions = plotOptions;
+   $('#container').highcharts(json);
+  
+});
+ 		    }
+});
 
-						<!-- start: User Dropdown -->
-						<li class="dropdown"><a class="btn dropdown-toggle"
-							data-toggle="dropdown" href="#"> <i
-								class="halflings-icon white user"></i> <%=request.getParameter("username")%> <span
-								class="caret"></span>
-						</a>
-							<ul class="dropdown-menu">
-								<li class="dropdown-menu-title"><span>Account
-										Settings</span></li>
-								<li><a href="#"><i class="halflings-icon user"></i>
-										Profile</a></li>
-								<li><a href="login.jsp"><i class="halflings-icon off"></i>
-										Logout</a></li>
-							</ul></li>
-						<!-- end: User Dropdown -->
-					</ul>
-				</div>
-				<!-- end: Header Menu -->
-
-			</div>
-		</div>
-	</div>
-	<!-- start: Header -->
-
+</script>     
+	
+<%--  	<% response.setIntHeader("Refresh", 2); %> --%>
+	
 	<div class="container-fluid-full">
 		<div class="row-fluid">
-
+<hr>
 			<!-- start: Main Menu -->
 			<div id="sidebar-left" class="span2">
 				<div class="nav-collapse sidebar-nav">
 					<ul class="nav nav-tabs nav-stacked main-menu">
-						<li><a href="index.jsp"><i class="icon-bar-chart"></i><span
-								class="hidden-tablet"> Dashboard</span></a></li>
-
-
-						<li><a href="ui.jsp"><i class="icon-eye-open"></i><span
-								class="hidden-tablet"> UI Features</span></a></li>
+						
+ 						<li><a href="index.jsp"><i class="icon-eye-open"></i><span 
+ 								class="hidden-tablet">Dashboard</span></a></li>
 						<li><a href="widgets.jsp"><i class="icon-dashboard"></i><span
 								class="hidden-tablet"> Scores</span></a></li>
 						<!-- 						<li> -->
@@ -253,8 +147,8 @@
 						<!-- 								<li><a class="submenu" href="submenu3.jsp"><i class="icon-file-alt"></i><span class="hidden-tablet"> Sub Menu 3</span></a></li> -->
 						<!-- 							</ul>	 -->
 						<!-- 						</li> -->
-						<li><a href="form.jsp"><i class="icon-edit"></i><span
-								class="hidden-tablet"> Forms</span></a></li>
+<!-- 						<li><a href="form.jsp"><i class="icon-edit"></i><span -->
+<!-- 								class="hidden-tablet"> Forms</span></a></li> -->
 						<li><a href="chart.jsp"><i class="icon-list-alt"></i><span
 								class="hidden-tablet"> Charts</span></a></li>
 
@@ -282,14 +176,36 @@
 						class="icon-angle-right"></i></li>
 					<li><a href="#">Scores</a></li>
 				</ul>
-
+				
+				 <div class="col-md-2">
+        <div class="dropdown">
+  <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Select Symbol
+  <span class="caret"></span></button>
+  <ul class="dropdown-menu">
+    <li><a href="#">AAPL</a></li>
+    <li><a href="#">CSCO</a></li>
+    <li><a href="#">DIS</a></li>
+    <li><a href="#">EBAY</a></li>
+    <li><a href="#">GOOG</a></li>
+    <li><a href="#">INTC</a></li>
+    <li><a href="#">LNKD</a></li>
+    <li><a href="#">RHT</a></li>
+    <li><a href="#">TSLA</a></li>
+    <li><a href="#">TWTR</a></li>
+  </ul>
+</div>  	</div>
 				
 
-					
-						<div class="box-content">
-					<p>Displaying table contents: </p>
+			<div id="container" style="height: 400px; min-width: 310px"></div>	
 
-    <table border="0" cellpadding="10">
+					<hr>
+					<hr>
+					<hr>
+					<hr>
+						<div class="box-content">
+					<p><b>Displaying table contents: </b></p>
+
+    <table class="table table-bordered">
         <thead>
             <tr>
                 <th>Symbol</th>
@@ -304,14 +220,20 @@
             <%
             	//String symbol = request.getParameter("symbol");    
             	//String sentiment = request.getParameter("sentiment");            
+              	Statement stmt = null;
+              	Connection conn = null;
+              	
+              
               	Class.forName("com.mysql.jdbc.Driver");
-                Connection conn = null;
-                conn = DriverManager.getConnection("jdbc:mysql://stocktwits.c0nhenmgg8th.us-west-2.rds.amazonaws.com:3306/", "cmpe295b", "cmpe295b");
-                Statement stmt = null;
+                
+                conn = DriverManager.getConnection("jdbc:mysql://stocktwits.c0nhenmgg8th.us-west-2.rds.amazonaws.com:3306/?useSSL=false", "cmpe295b", "cmpe295b");
+                
                 stmt = conn.createStatement();
                 String query = "select symbol,sentiment from messages.sentiment";
                 ResultSet rs = null;
                 rs = stmt.executeQuery(query);
+                
+               try{ 
                 while(rs.next()){
             %>
             <tr>
@@ -325,17 +247,36 @@
                 <td><%=sentiment %></td>
                 <td>NYT, Twitter, Stocktwits</td>
                             </tr>               
-
+	<%} %>
             <%      
-                }
+                }finally{
+                	
+                	try{
+                        
+                        if(conn != null)  {conn.close();}
+                }catch(SQLException e){System.out.println("SQL error : " + e);}
+
+                }      	
+                   
             %>
+            
+            
 
         </tbody>
     </table>
+    
+    <hr>
+    <hr>
 
-						
-							
-						</div>
+
+</div>
+
+
+
+    </div>
+    
+    
+  						</div>
 					
 					<!--/span-->
 
@@ -344,6 +285,8 @@
 					<!--/span-->
 
 				</div>
+				
+	
 
 
 			</div>
@@ -374,9 +317,10 @@
 	<footer>
 
 		<p>
-			<span style="text-align: left; float: left">&copy; 2013 <a
+			<span style="text-align: left; float: left">&copy; 2016 <a
 				href="http://themifycloud.com/downloads/janux-free-responsive-admin-dashboard-template/"
-				alt="Bootstrap_Metro_Dashboard">JANUX Responsive Dashboard</a></span>
+				alt="Bootstrap_Metro_Dashboard">Market Wormhole Responsive
+					Dashboard</a></span>
 
 		</p>
 
@@ -384,60 +328,8 @@
 
 	<!-- start: JavaScript-->
 
-	<script src="js/jquery-1.9.1.min.js"></script>
-	<script src="js/jquery-migrate-1.0.0.min.js"></script>
-
-	<script src="js/jquery-ui-1.10.0.custom.min.js"></script>
-
-	<script src="js/jquery.ui.touch-punch.js"></script>
-
-	<script src="js/modernizr.js"></script>
-
 	<script src="js/bootstrap.min.js"></script>
-
-	<script src="js/jquery.cookie.js"></script>
-
-	<script src='js/fullcalendar.min.js'></script>
-
-	<script src='js/jquery.dataTables.min.js'></script>
-
-	<script src="js/excanvas.js"></script>
-	<script src="js/jquery.flot.js"></script>
-	<script src="js/jquery.flot.pie.js"></script>
-	<script src="js/jquery.flot.stack.js"></script>
-	<script src="js/jquery.flot.resize.min.js"></script>
-
-	<script src="js/jquery.chosen.min.js"></script>
-
-	<script src="js/jquery.uniform.min.js"></script>
-
-	<script src="js/jquery.cleditor.min.js"></script>
-
-	<script src="js/jquery.noty.js"></script>
-
-	<script src="js/jquery.elfinder.min.js"></script>
-
-	<script src="js/jquery.raty.min.js"></script>
-
-	<script src="js/jquery.iphone.toggle.js"></script>
-
-	<script src="js/jquery.uploadify-3.1.min.js"></script>
-
-	<script src="js/jquery.gritter.min.js"></script>
-
-	<script src="js/jquery.imagesloaded.js"></script>
-
-	<script src="js/jquery.masonry.min.js"></script>
-
-	<script src="js/jquery.knob.modified.js"></script>
-
-	<script src="js/jquery.sparkline.min.js"></script>
-
-	<script src="js/counter.js"></script>
-
-	<script src="js/retina.js"></script>
-
-	<script src="js/custom.js"></script>
+	
 	<!-- end: JavaScript-->
 
 </body>
