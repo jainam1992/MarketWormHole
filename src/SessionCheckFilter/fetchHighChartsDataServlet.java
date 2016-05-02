@@ -66,7 +66,7 @@ public class fetchHighChartsDataServlet extends HttpServlet {
 				String times = rs.getString("timestamp").replaceAll("(-|:|\\s)",  ",");
 				times=times.replaceAll("\\.0$","");
 				System.out.println(times);
-				JSONArray += "[" + times+ "," + rs.getString("score") + "],";
+				JSONArray += "[Date.UTC(" + times+ ")," + rs.getString("score") + "],";
 
 			}
 
