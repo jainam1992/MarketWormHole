@@ -15,45 +15,40 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class fetchHighChartsDataServlet
+ * Servlet implementation class pieChart
  */
-@WebServlet("/fetchHighChartsDataServlet")
-public class fetchHighChartsDataServlet extends HttpServlet {
+@WebServlet("/pieChartStocktwits")
+public class pieChartStocktwits extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public pieChartStocktwits() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
 
 	/**
-	 * @see HttpServlet#HttpServlet()
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	public fetchHighChartsDataServlet() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-//		response.getWriter().append("Served at: ").append(request.getContextPath());
-
-		// String symbol = request.getParameter("symbol");
-		// String sentiment = request.getParameter("sentiment");
+		//response.getWriter().append("Served at: ").append(request.getContextPath());
+		
 		Statement stmt = null;
 		Connection conn = null;
 		try {
-			
-			
 
 			Class.forName("com.mysql.jdbc.Driver");
 
-			conn = DriverManager.getConnection(
-					"jdbc:mysql://stocktwits.c0nhenmgg8th.us-west-2.rds.amazonaws.com:3306/?useSSL=false", "cmpe295b",
-					"cmpe295b");
 			String stockSymbol = request.getParameter("stockSymbol");
+			
+			conn = DriverManager.getConnection("jdbc:mysql://stocktwits.c0nhenmgg8th.us-west-2.rds.amazonaws.com:3306/?useSSL=false", "cmpe295b",
+					"cmpe295b");
+
 			stmt = conn.createStatement();
-			String query = "SELECT timestamp,score FROM messages.twitter WHERE symbol='"+stockSymbol+"' AND score != 0.0 AND timestamp > DATE_SUB(CURDATE(), INTERVAL 1 DAY)";
+			String query = "select SUM(score > 0) `Positive`, SUM(score < 0) `Negative`, SUM(score = 0) `Neutral` from messages.stocktwits WHERE symbol='"+stockSymbol+"'";
 			ResultSet rs = null;
 			rs = stmt.executeQuery(query);
 
@@ -64,11 +59,9 @@ public class fetchHighChartsDataServlet extends HttpServlet {
 			String JSONArray = "([";
 			//int i = 1;
 			while (rs.next()) {
-				System.out.println(rs.getString("timestamp"));
-				String times = rs.getString("timestamp").replaceAll("(-|:|\\s)",  ",");
-				times=times.replaceAll("\\.0$","");
-				System.out.println(times);
-				JSONArray += "[Date.UTC(" + times+ ")," + rs.getString("score") + "],";
+				System.out.println(rs.getString("Positive")+ " "+ rs.getString("Negative") + " "+ rs.getString("Neutral"));
+				
+				JSONArray += "{name: 'Positive',y:" + rs.getString("Positive") +"},{name: 'Negative',y:"+ rs.getString("Negative")+"},{name: 'Neutral',y:"+ rs.getString("Neutral")+"},";
 
 			}
 
@@ -102,15 +95,13 @@ public class fetchHighChartsDataServlet extends HttpServlet {
 			}
 
 		}
-
+		
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
-	 *      response)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}

@@ -20,7 +20,9 @@
 <link href="css/bootstrap-responsive.min.css" rel="stylesheet">
 <link id="base-style" href="css/style.css" rel="stylesheet">
 
-<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+<link
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+	rel="stylesheet">
 <link id="base-style-responsive" href="css/style-responsive.css"
 	rel="stylesheet">
 <link
@@ -56,163 +58,96 @@
 					data-target=".top-nav.nav-collapse,.sidebar-nav.nav-collapse">
 					<span class="icon-bar"></span> <span class="icon-bar"></span> <span
 					class="icon-bar"></span>
-				</a> <a class="brand" href="fpindex.jsp"><span>Market Wormhole</span></a>
+				</a> <a class="brand" href="fpindex.jsp"><span>Market
+						Wormhole</span></a>
 
 				<!-- start: Header Menu -->
-				
-					<ul class="nav pull-right">	
-				<a href="login.jsp">						
-						
-						<button type="button" class="btn btn-success">Sign In / Register</button>
-											
-						
+
+				<ul class="nav pull-right">
+					<a href="login.jsp"> <%
+ 	if ((session.getAttribute("username") == null) || (session.getAttribute("username") == "")) {
+ %> You are not logged in<br /> <%
+ 	} else {
+ %><br> Welcome, <%=session.getAttribute("username")%> |||<a
+						href='logout.jsp'><b>Log out</b></a> <%
+ 	}
+ %>
+
+
 					</a>
-					</ul>
-				</div>
-				<!-- end: Header Menu -->
+				</ul>
+			</div>
+			<!-- end: Header Menu -->
+
+		</div>
+	</div>
+
+
+	<!-- Page Content -->
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6">
+				<h1>About Market Wormhole</h1>
+				<p>Buy Low, Sell High</p>
+				<p>
+					<b><u>GAUGE REAL TIME SENTIMENT</u></b>
+				</p>
+
+				<p>Check the level of bullishness and bearishness around a stock
+					before you make your next investment.</p>
+
+				<p>Want to know stock prediction.? Click on button below</p>
+
+					<form id="login-form" action="sessionCheck.jsp" method="post"
+						role="form" style="display: block;">
+
+						<button type="submit" class="btn btn-primary">View
+							Prediction</button>
+				
+				</form>
+
+
+			</div>
+			<hr>
+			<div class="col-md-6">
+				<!-- TradingView Widget BEGIN -->
+				<div id="tv-miniwidget-eebe8"></div>
+				<script type="text/javascript"
+					src="https://d33t3vvu2t2yu5.cloudfront.net/tv.js"></script>
+				<script type="text/javascript">
+					new TradingView.MiniWidget(
+							{
+								"container_id" : "tv-miniwidget-eebe8",
+								"tabs" : [ "Equities" ],
+								"symbols" : {
+									"Equities" : [ [ "S&P500", "SPX500" ],
+											[ "NQ100", "NAS100" ],
+											[ "Dow30", "DOWI" ],
+											[ "Nikkei225", "JPN225" ],
+											[ "Apple", "AAPL " ],
+											[ "Google", "GOOG" ] ]
+								},
+								"gridLineColor" : "#E9E9EA",
+								"fontColor" : "#83888D",
+								"underLineColor" : "#dbeffb",
+								"trendLineColor" : "#4bafe9",
+								"activeTickerBackgroundColor" : "#EDF0F3",
+								"large_chart_url" : "https://www.tradingview.com/chart/",
+								"noGraph" : false,
+								"width" : "500px",
+								"height" : "400px",
+								"locale" : "en"
+							});
+				</script>
+				<!-- TradingView Widget END -->
+
 
 			</div>
 		</div>
-		
 
-    <!-- Page Content -->
-     <div class="container">   
-     <div class="row">
-            <div class="col-md-6">
-                <h1>About Market Wormhole</h1>
-                <p>Buy Low, Sell High</p>
-                <p><b><u>GAUGE REAL TIME SENTIMENT</u></b></p>
 
-<p>Check the level of bullishness and bearishness around a stock before you make your next investment.</p>
-                
-                <p>Want to know stock prediction.? Click on button below</p>
-                                <a href="login.jsp">
-                <button type="button" class="btn btn-primary"
-						>View Prediction</button></a>
-            </div>
-            <hr>
-            <div class="col-md-6">
-                <!-- TradingView Widget BEGIN -->
-<div id="tv-miniwidget-eebe8"></div>
-<script type="text/javascript" src="https://d33t3vvu2t2yu5.cloudfront.net/tv.js"></script>
-<script type="text/javascript">
-new TradingView.MiniWidget({
-  "container_id": "tv-miniwidget-eebe8",
-  "tabs": [
-    "Equities",
-    "Commodities",
-    "Bonds",
-    "Forex"
-  ],
-  "symbols": {
-    "Equities": [
-      [
-        "S&P500",
-        "SPX500"
-      ],
-      [
-        "NQ100",
-        "NAS100"
-      ],
-      [
-        "Dow30",
-        "DOWI"
-      ],
-      [
-        "Nikkei225",
-        "JPN225"
-      ],
-      [
-        "Apple",
-        "AAPL "
-      ],
-      [
-        "Google",
-        "GOOG"
-      ]
-    ],
-    "Commodities": [
-      [
-        "Emini",
-        "ES1!"
-      ],
-      [
-        "Euro",
-        "E61!"
-      ],
-      [
-        "Gold",
-        "GC1!"
-      ],
-      [
-        "Oil",
-        "CL1!"
-      ],
-      [
-        "Gas",
-        "NG1!"
-      ],
-      [
-        "Corn",
-        "ZC1!"
-      ]
-    ],
-    "Bonds": [
-      [
-        "Eurodollar",
-        "CME:GE1!"
-      ],
-      [
-        "T-Bond",
-        "CBOT:ZB1!"
-      ],
-      [
-        "Ultra T-Bond",
-        "CBOT:UD1!"
-      ],
-      [
-        "Euro Bund",
-        "FX:BUND"
-      ],
-      [
-        "Euro BTP",
-        "EUREX:II1!"
-      ],
-      [
-        "Euro BOBL",
-        "EUREX:HR1!"
-      ]
-    ],
-    "Forex": [
-      "FX:EURUSD",
-      "FX:GBPUSD",
-      "FX:USDJPY",
-      "FX:USDCHF",
-      "FX:AUDUSD",
-      "FX:USDCAD"
-    ]
-  },
-  "gridLineColor": "#E9E9EA",
-  "fontColor": "#83888D",
-  "underLineColor": "#dbeffb",
-  "trendLineColor": "#4bafe9",
-  "activeTickerBackgroundColor": "#EDF0F3",
-  "large_chart_url": "https://www.tradingview.com/chart/",
-  "noGraph": false,
-  "width": "500px",
-  "height": "400px",
-  "locale": "en"
-});
-</script>
-<!-- TradingView Widget END -->
-                
-                
-            </div>
-        </div>	
-        
-        
 	</div>
-	
+
 	<footer class="footer navbar-fixed-bottom">
 
 		<p>
@@ -224,10 +159,10 @@ new TradingView.MiniWidget({
 		</p>
 
 	</footer>
-	
 
 
-	
+
+
 
 	<!-- start: JavaScript-->
 

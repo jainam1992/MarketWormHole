@@ -15,31 +15,25 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class fetchHighChartsDataServlet
+ * Servlet implementation class fetchTable
  */
-@WebServlet("/fetchHighChartsDataServlet")
-public class fetchHighChartsDataServlet extends HttpServlet {
+@WebServlet("/fetchTable")
+public class fetchTable extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public fetchTable() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
 
 	/**
-	 * @see HttpServlet#HttpServlet()
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	public fetchHighChartsDataServlet() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-//		response.getWriter().append("Served at: ").append(request.getContextPath());
-
-		// String symbol = request.getParameter("symbol");
-		// String sentiment = request.getParameter("sentiment");
 		Statement stmt = null;
 		Connection conn = null;
 		try {
@@ -53,7 +47,7 @@ public class fetchHighChartsDataServlet extends HttpServlet {
 					"cmpe295b");
 			String stockSymbol = request.getParameter("stockSymbol");
 			stmt = conn.createStatement();
-			String query = "SELECT timestamp,score FROM messages.twitter WHERE symbol='"+stockSymbol+"' AND score != 0.0 AND timestamp > DATE_SUB(CURDATE(), INTERVAL 1 DAY)";
+			String query = "select symbol,sentiment from messages.sentiment where symbol='"+stockSymbol+"'";
 			ResultSet rs = null;
 			rs = stmt.executeQuery(query);
 
@@ -61,20 +55,18 @@ public class fetchHighChartsDataServlet extends HttpServlet {
 			// [10,0.7695],
 			// [12,0.7648]]);
 
-			String JSONArray = "([";
+			String JSONResponse = "";
 			//int i = 1;
 			while (rs.next()) {
-				System.out.println(rs.getString("timestamp"));
-				String times = rs.getString("timestamp").replaceAll("(-|:|\\s)",  ",");
-				times=times.replaceAll("\\.0$","");
-				System.out.println(times);
-				JSONArray += "[Date.UTC(" + times+ ")," + rs.getString("score") + "],";
-
+				String symbol = rs.getString("symbol");
+				String sentiment = Float.toString(rs.getFloat("sentiment"));
+				
+				JSONResponse+= "{\"symbol\":\""+symbol+"\",\"sentiment\":\""+sentiment+"\"}";
+				
 			}
 
-			String JSONResponse = JSONArray.substring(0, JSONArray.length() - 1);
-			JSONResponse = JSONResponse + "])";
-			//System.out.println(JSONResponse);
+			
+			System.out.println(JSONResponse);
 
 			
 			// Get the printwriter object from response to write the required
@@ -102,15 +94,12 @@ public class fetchHighChartsDataServlet extends HttpServlet {
 			}
 
 		}
-
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
-	 *      response)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}

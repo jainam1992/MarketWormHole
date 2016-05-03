@@ -17,14 +17,14 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class fetchHighChartsDataServlet
  */
-@WebServlet("/fetchHighChartsDataServlet")
-public class fetchHighChartsDataServlet extends HttpServlet {
+@WebServlet("/fetchStocktwitsGraph")
+public class fetchStocktwitsGraph extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public fetchHighChartsDataServlet() {
+	public fetchStocktwitsGraph() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -53,7 +53,7 @@ public class fetchHighChartsDataServlet extends HttpServlet {
 					"cmpe295b");
 			String stockSymbol = request.getParameter("stockSymbol");
 			stmt = conn.createStatement();
-			String query = "SELECT timestamp,score FROM messages.twitter WHERE symbol='"+stockSymbol+"' AND score != 0.0 AND timestamp > DATE_SUB(CURDATE(), INTERVAL 1 DAY)";
+			String query = "SELECT timestamp,score FROM messages.stocktwits WHERE symbol='"+stockSymbol+"' AND score != 0.0";
 			ResultSet rs = null;
 			rs = stmt.executeQuery(query);
 

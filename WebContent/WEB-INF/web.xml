@@ -3,7 +3,6 @@
   <display-name>MarketWormhole</display-name>
   <welcome-file-list>
     <welcome-file>fpindex.jsp</welcome-file>
-    <welcome-file>fpindex.jsp</welcome-file>
     <welcome-file>default.html</welcome-file>
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>

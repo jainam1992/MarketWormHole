@@ -41,13 +41,15 @@ public class pieChart extends HttpServlet {
 		try {
 
 			Class.forName("com.mysql.jdbc.Driver");
+			
+			String stockSymbol = request.getParameter("stockSymbol");
 
 			conn = DriverManager.getConnection(
 					"jdbc:mysql://stocktwits.c0nhenmgg8th.us-west-2.rds.amazonaws.com:3306/?useSSL=false", "cmpe295b",
 					"cmpe295b");
 
 			stmt = conn.createStatement();
-			String query = "select SUM(score > 0) `Positive`, SUM(score < 0) `Negative`, SUM(score = 0) `Neutral` from messages.twitter";
+			String query = "select SUM(score > 0) `Positive`, SUM(score < 0) `Negative`, SUM(score = 0) `Neutral` from messages.twitter WHERE symbol='"+stockSymbol+"'";
 			ResultSet rs = null;
 			rs = stmt.executeQuery(query);
 
@@ -66,7 +68,7 @@ public class pieChart extends HttpServlet {
 
 			String JSONResponse = JSONArray.substring(0, JSONArray.length() - 1);
 			JSONResponse = JSONResponse + "])";
-			System.out.println(JSONResponse);
+			//System.out.println(JSONResponse);
 
 			
 			// Get the printwriter object from response to write the required
