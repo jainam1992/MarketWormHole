@@ -53,7 +53,7 @@ public class fetchHighChartsDataServlet extends HttpServlet {
 					"cmpe295b");
 			String stockSymbol = request.getParameter("stockSymbol");
 			stmt = conn.createStatement();
-			String query = "SELECT timestamp,score FROM messages.twitter WHERE symbol='"+stockSymbol+"' AND score != 0.0 AND timestamp > DATE_SUB(CURDATE(), INTERVAL 1 DAY)";
+			String query = "SELECT timestamp,score FROM messages.twitter WHERE symbol='"+stockSymbol+"' AND score != 0.0";
 			ResultSet rs = null;
 			rs = stmt.executeQuery(query);
 

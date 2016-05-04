@@ -103,6 +103,7 @@ if(session.getAttribute("username")==null){
 					//console.log(data);
 
 					$(document).ready(function() {
+						//alert(data);
 						var chart = {
 							type : 'spline'
 						};
@@ -167,9 +168,10 @@ if(session.getAttribute("username")==null){
 				url : "fetchStocktwitsGraph",
 				data:{"stockSymbol":a},
 				success : function(data) {
-					console.log(data);
+					//console.log(data);
 					
 					$(document).ready(function() {
+						//alert(data);
 						var chart = {
 							type : 'spline'
 						};
