@@ -86,9 +86,13 @@
 	<!-- Page Content -->
 	<div class="container">
 		<div class="row">
+		
 			<div class="col-md-6">
-				<h1>About Market Wormhole</h1>
-				<p>Buy Low, Sell High</p>
+				<br>
+				<br>
+				<br>
+				
+			<h1>	<p><b><i>Buy Low, Sell Higher</i></b></p></h1>
 				<p>
 					<b><u>GAUGE REAL TIME SENTIMENT</u></b>
 				</p>
@@ -108,46 +112,17 @@
 
 
 			</div>
-			<hr>
+			<br>
 			<div class="col-md-6">
-				<!-- TradingView Widget BEGIN -->
-				<div id="tv-miniwidget-eebe8"></div>
-				<script type="text/javascript"
-					src="https://d33t3vvu2t2yu5.cloudfront.net/tv.js"></script>
-				<script type="text/javascript">
-					new TradingView.MiniWidget(
-							{
-								"container_id" : "tv-miniwidget-eebe8",
-								"tabs" : [ "Equities" ],
-								"symbols" : {
-									"Equities" : [ [ "S&P500", "SPX500" ],
-											[ "NQ100", "NAS100" ],
-											[ "Dow30", "DOWI" ],
-											[ "Nikkei225", "JPN225" ],
-											[ "Apple", "AAPL " ],
-											[ "Google", "GOOG" ] ]
-								},
-								"gridLineColor" : "#E9E9EA",
-								"fontColor" : "#83888D",
-								"underLineColor" : "#dbeffb",
-								"trendLineColor" : "#4bafe9",
-								"activeTickerBackgroundColor" : "#EDF0F3",
-								"large_chart_url" : "https://www.tradingview.com/chart/",
-								"noGraph" : false,
-								"width" : "500px",
-								"height" : "400px",
-								"locale" : "en"
-							});
-				</script>
-				<!-- TradingView Widget END -->
-
+			<img src="img/stock8.jpg"/>	
 
 			</div>
 		</div>
 
 
 	</div>
-
+	
+	
 	<footer class="footer navbar-fixed-bottom">
 
 		<p>

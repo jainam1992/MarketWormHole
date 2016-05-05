@@ -28,6 +28,8 @@ if(session.getAttribute("username")==null){
 
 <!-- start: CSS -->
 <link id="bootstrap-style" href="css/bootstrap.min.css" rel="stylesheet">
+<link id="bootstrap-style" href="css/fpbootstrap.min.css" rel="stylesheet">
+<!-- <link id="bootstrap-style" href="css/fpbootstrap.min.css" rel="stylesheet"> -->
 <link href="css/bootstrap-responsive.min.css" rel="stylesheet">
 <link id="base-style" href="css/style.css" rel="stylesheet">
 <link id="base-style-responsive" href="css/style-responsive.css"
@@ -64,9 +66,20 @@ if(session.getAttribute("username")==null){
 <script src="https://code.highcharts.com/highcharts.js"></script>
 <script src="https://code.highcharts.com/modules/exporting.js"></script>
 
+<style>
+.label{
+font-size: 15px;
+font-weight: bold;
+padding: 9px 40px 9px;
+}
+
+</style>
+
+
 </head>
 
 <body>
+
 	<%@ include file="navBar.jsp"%>
 	<script>
 		function stockSelected() {
@@ -82,10 +95,31 @@ if(session.getAttribute("username")==null){
 				data:{"stockSymbol":a},
 				success : function(data) {
 					var jsonData = JSON.parse(data);
-					//alert(jsonData.symbol);
+					//alert(jsonData.sentiment);
+					{
+						if(jsonData.sentiment>0){
+							//alert("buy");
+							document.getElementById("buysell").innerHTML = "Buy";
+							$('#buysell').addClass('label-success');
+							$('#buysell').removeClass('label-primary');
+							$('#buysell').removeClass('label-danger');
+						}
+						else if(jsonData.sentiment < 0){
+							document.getElementById("buysell").innerHTML = "Sell";
+							$('#buysell').addClass('label-danger');
+							$('#buysell').removeClass('label-primary');
+							$('#buysell').removeClass('label-success');
+						}
+						else{
+							document.getElementById("buysell").innerHTML = "Hold";
+							$('#buysell').addClass('label-primary');
+							$('#buysell').removeClass('label-danger');
+							$('#buysell').removeClass('label-success');
+						}
+					}
 					
-					var html = "<table class='table table-bordered'><thead><tr><th>Symbol</th><th>Sentiment</th></tr></thead><tbody>";
-						html += "<tr><td>"+jsonData.symbol+"</td><td>"+jsonData.sentiment+"</td></tr></tbody></table>";
+					var html = "<table><thead><tr><th><i>Sentiment</i></th></tr></thead><tbody>";
+						html += "<tr><td>"+jsonData.sentiment+"</td></tr></tbody></table>";
 						
 					$("#dynamicTable").html(html);	
 						
@@ -100,7 +134,7 @@ if(session.getAttribute("username")==null){
 				url : "fetchHighChartsDataServlet",
 				data:{"stockSymbol":a},
 				success : function(data) {
-					//console.log(data);
+					console.log(data);
 
 					$(document).ready(function() {
 						var chart = {
@@ -229,13 +263,13 @@ if(session.getAttribute("username")==null){
 				}
 			});
 			
-
+/* 
 			$.ajax({
 						type : "GET",
 						url : "pieChart",
 						data:{"stockSymbol":a},
 						success : function(data) {
-							//console.log(data);
+							console.log(data);
 
 							$(document)
 									.ready(
@@ -340,7 +374,7 @@ if(session.getAttribute("username")==null){
 
 											});
 						}
-					});
+					}); */
 
 		}
 	</script>
@@ -350,6 +384,8 @@ if(session.getAttribute("username")==null){
 	<div class="container-fluid-full">
 		<div class="row-fluid">
 			<hr>
+			<hr>
+			
 			<!-- start: Main Menu -->
 			<div id="sidebar-left" class="span2">
 				<div class="nav-collapse sidebar-nav">
@@ -369,8 +405,11 @@ if(session.getAttribute("username")==null){
 						<!-- 						</li> -->
 						<!-- 						<li><a href="form.jsp"><i class="icon-edit"></i><span -->
 						<!-- 								class="hidden-tablet"> Forms</span></a></li> -->
-<!-- 						<li><a href="chart.jsp"><i class="icon-list-alt"></i><span -->
-<!-- 								class="hidden-tablet"> Charts</span></a></li> -->
+						<li><a href="charts.jsp"><i class="icon-list-alt"></i><span
+								class="hidden-tablet"> Charts</span></a></li>
+						<li><a href="tweets.jsp"><i class="icon-list-alt"></i><span
+								class="hidden-tablet"> Tweets</span></a></li>
+								
 
 					</ul>
 				</div>
@@ -396,33 +435,45 @@ if(session.getAttribute("username")==null){
 						class="icon-angle-right"></i></li>
 					<li><a href="#">Dashboard</a></li>
 				</ul>
+<div class="container">
+<div class="row">
+				<div class="col-md-3">
 
 				<form name="form1" action="/fetchHighChartsDataServlet"
 					method="POST">
 					<!-- <input type="hidden" name="action" value="checking">  -->
 					<select name="stockSymbol" id="stockSymbol" onchange="stockSelected()">
-						<option value="AAPL">AAPL</option>
-						<option value="CSCO">CSCO</option>
-						<option value="DIS">DIS</option>
+						<option value="AAPL">APPLE Inc.</option>
+						<option value="CSCO">CISCO</option>
+						<option value="DIS">DISNEY</option>
 						<option value="EBAY">EBAY</option>
-						<option value="GOOG">GOOG</option>
-						<option value="INTC">INTC</option>
-						<option value="LNKD">LNKD</option>
-						<option value="RHT">RHT</option>
-						<option value="TSLA">TSLA</option>
-						<option value="TWTR">TWTR</option>
+						<option value="GOOG">GOOGLE Inc.</option>
+						<option value="INTC">INTEL</option>
+						<option value="LNKD">LINKEDIn</option>
+						<option value="RHT">RED HAT</option>
+						<option value="TSLA">TESLA</option>
+						<option value="TWTR">TWITTER</option>
 					</select>
 
 				</form>
+				</div>
+		
+				<div class="col-md-6">	
 				
-				<div id="dynamicTable"></div>
+				<span class="label" id="buysell"></span>
+				
+		</div>		
+		</div>
+		</div>
+				<div id="dynamicTable" align="left"></div>
+				<hr>
 				
 				<div id="container" style="height: 400px; min-width: 310px"></div>
 <hr>
 				<div id="container2" style="height: 400px; min-width: 310px"></div>
 <hr>
 				
-				<div class="row-fluid sortable">
+			<!-- 	<div class="row-fluid sortable">
 				<div class="box span6">
 				
 				<div class="box-content">
@@ -439,7 +490,7 @@ if(session.getAttribute("username")==null){
 				
 				</div>
 				
-				</div>
+				</div> -->
 				
 <!-- 					<div id="container-pie-chart" style="height: 200px; min-width: 210px"></div> -->
 <!-- 					<div id="container-pie-chart2" style="height: 200px; min-width: 210px"></div> -->
