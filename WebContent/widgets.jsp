@@ -137,6 +137,7 @@ padding: 9px 40px 9px;
 					console.log(data);
 
 					$(document).ready(function() {
+						//alert(data);
 						var chart = {
 							type : 'spline'
 						};
@@ -201,9 +202,10 @@ padding: 9px 40px 9px;
 				url : "fetchStocktwitsGraph",
 				data:{"stockSymbol":a},
 				success : function(data) {
-					console.log(data);
+					//console.log(data);
 					
 					$(document).ready(function() {
+						//alert(data);
 						var chart = {
 							type : 'spline'
 						};
