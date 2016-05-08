@@ -19,7 +19,7 @@
 <link id="bootstrap-style" href="css/bootstrap.min.css" rel="stylesheet">
 <link href="css/bootstrap-responsive.min.css" rel="stylesheet">
 <link id="base-style" href="css/style.css" rel="stylesheet">
-
+<link id="base-style" href="css/custom.css" rel="stylesheet">
 <link
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
 	rel="stylesheet">
@@ -45,13 +45,43 @@
 <link rel="shortcut icon" href="img/favicon.ico">
 <!-- end: Favicon -->
 
+<style>
+.container{
+    background-color:#3BB29E;
+    width: auto;
+  height : auto;
+  max-height: 100%;
+  max-width: 100%;
+  font-family: cursive;
+    
+}
+</style>
 
+<style type="text/css">
+.bgimg {
+    /* background-image: url('http://wallpoper.com/images/00/32/35/17/light-minimalistic_00323517.jpg'); */
+    background-color:white;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-family: cursive;
+    font-style: italic;
+}
+</style>
+
+
+
+<style type="text/css">
+.bgimg2 {
+    background-image: url('http://newshaifakrayot.net/wp-content/uploads/2016/02/grafico.png');
+    
+}
+</style>
 
 
 </head>
 
 <body>
-	<div class="navbar">
+	<div class="navbar navbar-inverse navbar-fixed-top">
 		<div class="navbar-inner">
 			<div class="container-fluid">
 				<a class="btn btn-navbar" data-toggle="collapse"
@@ -66,10 +96,11 @@
 				<ul class="nav pull-right">
 					<a href="login.jsp"> <%
  	if ((session.getAttribute("username") == null) || (session.getAttribute("username") == "")) {
- %> You are not logged in<br /> <%
+ %> <br><button type="button" class="btn btn-danger">Login / Register</button>
+<br /> <%
  	} else {
- %><br> Welcome, <%=session.getAttribute("username")%> |||<a
-						href='logout.jsp'><b>Log out</b></a> <%
+ %><br><b> Welcome, <%=session.getAttribute("username")%></b>
+ <a	href='logout.jsp'> <br><b>Log out</b></a> <%
  	}
  %>
 
@@ -81,31 +112,43 @@
 
 		</div>
 	</div>
+<br>
+<br>
+<br>
 
 
 	<!-- Page Content -->
+	
+<!-- <div class="container">
+<img alt="" src="img/stock5.jpg">
+
+</div>	
+ -->	
 	<div class="container">
 		<div class="row">
 		
-			<div class="col-md-6">
+			<div class="col-md-6" align="center">
+				<br>
+				<br>
+				<br>
 				<br>
 				<br>
 				<br>
 				
-			<h1>	<p><b><i>Buy Low, Sell Higher</i></b></p></h1>
+			<!-- <h1>	<p><b><i>Buy Low, Sell Higher</i></b></p></h1> -->
 				<p>
-					<b><u>GAUGE REAL TIME SENTIMENT</u></b>
+				<h4>	<b><u><i>GAUGE REAL TIME SENTIMENT</i></u></b></h4>
 				</p>
 
-				<p>Check the level of bullishness and bearishness around a stock
-					before you make your next investment.</p>
+				<p><b>Check the real time stock analysis
+					before you make your next investment.</b></p>
 
-				<p>Want to know stock prediction.? Click on button below</p>
+				<p><b>Want to know stock prediction.? Click on button below</b></p>
 
 					<form id="login-form" action="sessionCheck.jsp" method="post"
 						role="form" style="display: block;">
 
-						<button type="submit" class="btn btn-primary">View
+						<button type="submit" class="btn btn-danger">View
 							Prediction</button>
 				
 				</form>
@@ -114,22 +157,77 @@
 			</div>
 			<br>
 			<div class="col-md-6">
-			<img src="img/stock8.jpg"/>	
+			<img src="img/stock5.jpg"/>	
 
 			</div>
 		</div>
-
-
 	</div>
-	
+
+<div class="bgimg">
+
+<h2><center><i><u>What We do?</u></i></center></h2>
+<br>
+<div class="row text-center">
+
+            <div class="col-md-3 col-sm-6 hero-feature">
+                <div class="thumbnail">
+                    <img src="http://www.smallcapnation.com/images/stories/joomlart/blog/blog-nasdaq-2.png" alt="">
+                    <div class="caption">
+                        <h3>Monitor</h3>
+                        <p>Monitor data from various sources</p>
+                        
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3 col-sm-6 hero-feature">
+                <div class="thumbnail">
+                    <img src="img/analyze.jpg" alt="">
+                    <div class="caption">
+                        <h3>Analyze</h3>
+                        <p>Analyze data collected from various sources</p>
+                        
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3 col-sm-6 hero-feature">
+                <div class="thumbnail">
+                    <img src="http://basic-loan.com/wp-content/uploads/2015/07/exchange-Buying-and-selling-800x500_c.jpg" alt="">
+                    <div class="caption">
+                        <h3>Predict</h3>
+                        <p>Perform sentiment analysis on collected data</p>
+                        
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3 col-sm-6 hero-feature">
+                <div class="thumbnail">
+                    <img src="img/visualize.jpg" alt="">
+                    <div class="caption">
+                        <h3>Visualize</h3>
+                        <p>Visualize sentiment analysis</p>
+                        
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- /.row -->
+	</div>
+<br>
+<br>
+
+
+
 	
 	<footer class="footer navbar-fixed-bottom">
 
 		<p>
-			<span style="text-align: left; float: left">&copy; 2016 <a
-				href="http://themifycloud.com/downloads/janux-free-responsive-admin-dashboard-template/"
-				alt="Bootstrap_Metro_Dashboard">Market Wormhole Responsive
-					Dashboard</a></span>
+			<span style="text-align: left; float: left">&copy; 2016 - <a
+				href="fpindex.jsp"
+				alt="Bootstrap_Metro_Dashboard">Market Wormhole </a></span>
 
 		</p>
 

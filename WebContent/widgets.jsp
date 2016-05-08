@@ -438,7 +438,8 @@ padding: 9px 40px 9px;
 					<li><a href="#">Dashboard</a></li>
 				</ul>
 <div class="container">
-<div class="row">
+<div class="row" align="center">
+				
 				<div class="col-md-3">
 
 				<form name="form1" action="/fetchHighChartsDataServlet"
@@ -459,15 +460,17 @@ padding: 9px 40px 9px;
 
 				</form>
 				</div>
-		
-				<div class="col-md-6">	
+				<div class="col-md-3">
+				<div id="dynamicTable" align="left"></div>
+		</div>
+				<div class="col-md-3">	
 				
 				<span class="label" id="buysell"></span>
 				
-		</div>		
+				</div>		
 		</div>
 		</div>
-				<div id="dynamicTable" align="left"></div>
+				
 				<hr>
 				
 				<div id="container" style="height: 400px; min-width: 310px"></div>
