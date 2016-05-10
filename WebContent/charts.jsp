@@ -254,22 +254,22 @@ if(session.getAttribute("username")==null){
 				</ul>
 <div class="container">
 <div class="row">
-				<div class="col-md-6">
+				<div class="col-md-5">
 
 				<form name="form1" action="/fetchHighChartsDataServlet"
 					method="POST">
 					<!-- <input type="hidden" name="action" value="checking">  -->
-					<label><i>	Select Stock:  </i><select name="stockSymbol" id="stockSymbol" onchange="stockSelected()">
-						<option value="AAPL">APPLE Inc.</option>
-						<option value="CSCO">CISCO</option>
-						<option value="DIS">DISNEY</option>
-						<option value="EBAY">EBAY</option>
-						<option value="GOOG">GOOGLE</option>
-						<option value="INTC">INTEL</option>
-						<option value="LNKD">LINKEDIn</option>
-						<option value="RHT">REDHAT</option>
-						<option value="TSLA">TESLA</option>
-						<option value="TWTR">TWITTER</option>
+		<label><i>	Select Stock:  </i><select name="stockSymbol" id="stockSymbol" onchange="stockSelected()">
+						<option value="AAPL" >Apple Inc.</option>
+						<option value="CSCO">Cisco Systems</option>
+						<option value="DIS">The Walt Disney</option>
+						<option value="EBAY">eBay</option>
+						<option value="GOOG">Google</option>
+						<option value="INTC">Intel</option>
+						<option value="LNKD">LinkedIn Corporation</option>
+						<option value="RHT">Red Hat Inc</option>
+						<option value="TSLA">Tesla Motors</option>
+						<option value="TWTR">Twitter Inc.</option>
 					</select></label>
 
 				</form>
