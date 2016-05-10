@@ -112,18 +112,19 @@ div.twitter-tweet-rendered div.footer a.view-details span {
 blockquote.twitter-tweet {
   display: inline-block;
   font-family: "Helvetica Neue", Roboto, "Segoe UI", Calibri, sans-serif;
-  font-size: 12px;
-  font-weight: lighter;
+  font-size: 14px;
+  font-weight: bold;
   line-height: 16px;
-  border-color: #eee #ddd #bbb;
-  color:#55ACEE;
+  border-color: #35CE94;
+  color:#59ADEB;
   border-radius: 5px;
   border-style: solid;
-  border-width: 1px;
+  border-width: 6px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
   margin: 10px 5px;
   padding: 16px 16px 16px;
   max-width: 468px;
+  background-color: white;
 }
  
 blockquote.twitter-tweet p {
@@ -133,7 +134,7 @@ blockquote.twitter-tweet p {
 }
  
 blockquote.twitter-tweet a {
-  color: gray;
+  color:  black;
   font-weight: normal;
   text-decoration: none;
   outline: 0 none;
@@ -144,6 +145,26 @@ blockquote.twitter-tweet a:focus {
   text-decoration: underline;
 }
 
+
+
+blockquote.style1 {
+  font: 14px/20px italic Times, serif;
+  padding: 8px;
+  background-color: #faebbc;
+  border-top: 1px solid #e1cc89;
+  border-bottom: 1px solid #e1cc89;
+  margin: 5px;
+  background-image: url(images/openquote1.gif);
+  background-position: top left;
+  background-repeat: no-repeat;
+  text-indent: 23px;
+  }
+  blockquote.style1 span {
+    	display: block;
+    	background-image: url(images/closequote1.gif);
+    	background-repeat: no-repeat;
+    	background-position: bottom right;
+  	}
 </style>
 </head>
 
@@ -222,7 +243,7 @@ blockquote.twitter-tweet a:focus {
 				<form name="form1" action="/fetchTweets"
 					method="POST">
 					<!-- <input type="hidden" name="action" value="checking">  -->
-					<select name="stockSymbol" id="stockSymbol" onchange="stockSelected()">
+					<label><i>	Select Stock:  </i><select name="stockSymbol" id="stockSymbol" onchange="stockSelected()">
 						<option value="AAPL">APPLE Inc.</option>
 						<option value="CSCO">CISCO</option>
 						<option value="DIS">DISNEY</option>
@@ -233,7 +254,7 @@ blockquote.twitter-tweet a:focus {
 						<option value="RHT">REDHAT</option>
 						<option value="TSLA">TESLA</option>
 						<option value="TWTR">TWITTER</option>
-					</select>
+					</select></label>
 
 				</form>
 				</div>
@@ -315,9 +336,8 @@ blockquote.twitter-tweet a:focus {
 
 		<p>
 			<span style="text-align: left; float: left">&copy; 2016 <a
-				href="http://themifycloud.com/downloads/janux-free-responsive-admin-dashboard-template/"
-				alt="Bootstrap_Metro_Dashboard">Market Wormhole Responsive
-					Dashboard</a></span>
+				href="fpindex.jsp"
+				alt="Bootstrap_Metro_Dashboard">Market Wormhole</a></span>
 
 		</p>
 

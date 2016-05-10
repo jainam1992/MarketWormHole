@@ -70,8 +70,14 @@ if(session.getAttribute("username")==null){
 .label{
 font-size: 15px;
 font-weight: bold;
-padding: 9px 40px 9px;
+padding: 4px 25px 4px;
 }
+
+</style>
+
+<style>
+.select { text-indent: 5px; }
+
 
 </style>
 
@@ -86,8 +92,8 @@ padding: 9px 40px 9px;
 
 			var a = $("#stockSymbol").val();
             
-            
-            
+			var html="<img src='img/"+a+".jpg'/>"
+				 $("#stockImg").html(html);
             
             $.ajax({
 				type : "GET",
@@ -118,8 +124,11 @@ padding: 9px 40px 9px;
 						}
 					}
 					
-					var html = "<table><thead><tr><th><i>Sentiment</i></th></tr></thead><tbody>";
+					/* var html = "<table><thead><tr><th><i>Sentiment</i></th></tr></thead><tbody>";
 						html += "<tr><td>"+jsonData.sentiment+"</td></tr></tbody></table>";
+ */						
+					var html="<i><b>Sentiment: </b></i>";
+						html +=""+jsonData.sentiment+"";
 						
 					$("#dynamicTable").html(html);	
 						
@@ -439,14 +448,17 @@ padding: 9px 40px 9px;
 				</ul>
 <div class="container">
 <div class="row" align="center">
+				<div class="col-md-2" id="stockImg">
 				
-				<div class="col-md-3">
+				</div>
+				
+				<div class="col-md-4">
 
 				<form name="form1" action="/fetchHighChartsDataServlet"
 					method="POST">
 					<!-- <input type="hidden" name="action" value="checking">  -->
-					<select name="stockSymbol" id="stockSymbol" onchange="stockSelected()">
-						<option value="AAPL">APPLE Inc.</option>
+		<label><i>	Select Stock:  </i><select name="stockSymbol" id="stockSymbol" onchange="stockSelected()">
+						<option value="AAPL" >APPLE Inc.</option>
 						<option value="CSCO">CISCO</option>
 						<option value="DIS">DISNEY</option>
 						<option value="EBAY">EBAY</option>
@@ -456,14 +468,14 @@ padding: 9px 40px 9px;
 						<option value="RHT">RED HAT</option>
 						<option value="TSLA">TESLA</option>
 						<option value="TWTR">TWITTER</option>
-					</select>
+					</select></label>
 
 				</form>
 				</div>
 				<div class="col-md-3">
 				<div id="dynamicTable" align="left"></div>
 		</div>
-				<div class="col-md-3">	
+				<div class="col-md-3"><b><i>Prediction: </i></b>	
 				
 				<span class="label" id="buysell"></span>
 				
@@ -557,9 +569,8 @@ padding: 9px 40px 9px;
 
 		<p>
 			<span style="text-align: left; float: left">&copy; 2016 <a
-				href="http://themifycloud.com/downloads/janux-free-responsive-admin-dashboard-template/"
-				alt="Bootstrap_Metro_Dashboard">Market Wormhole Responsive
-					Dashboard</a></span>
+				href="fpindex.jsp"
+				alt="Bootstrap_Metro_Dashboard">Market Wormhole</a></span>
 
 		</p>
 

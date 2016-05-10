@@ -34,7 +34,10 @@
 <body>
 
 	<%@ include file="navBar.jsp" %>
-	
+<br>
+<br>
+<br>
+<br>	
 	<div class="container">
 		<div class="row">
 			<div class="col-md-6 col-md-offset-3">
@@ -64,7 +67,7 @@
 											tabindex="2" class="form-control" placeholder="Password">
 									</div>
 									
-									<div class="form-group">
+									<div class="form-group" align="center">
 										<div class="row">
 											<div class="col-sm-4 col-sm-offset-4">
 												<input type="submit" name="login-submit" id="login-submit"
@@ -73,16 +76,7 @@
 											</div>
 										</div>
 									</div>
-									<div class="form-group">
-										<div class="row">
-											<div class="col-lg-12">
-												<div class="text-center">
-													<a href="http://phpoll.com/recover" tabindex="5"
-														class="forgot-password">Forgot Password?</a>
-												</div>
-											</div>
-										</div>
-									</div>
+									
 								</form>
 								<form id="register-form"
 									action="submit.jsp" method="post" 

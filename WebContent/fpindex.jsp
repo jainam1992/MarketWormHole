@@ -78,6 +78,8 @@
 </style>
 
 
+<!-- START Worden Top Gainers and Losers Ticker Widget -->
+
 </head>
 
 <body>
@@ -137,7 +139,7 @@
 				
 			<!-- <h1>	<p><b><i>Buy Low, Sell Higher</i></b></p></h1> -->
 				<p>
-				<h4>	<b><u><i>GAUGE REAL TIME SENTIMENT</i></u></b></h4>
+				<h4>	<b><i>Stock Recommendation using Real Time Sentiment</i></b></h4>
 				</p>
 
 				<p><b>Check the real time stock analysis
@@ -165,7 +167,7 @@
 
 <div class="bgimg">
 
-<h2><center><i><u>What We do?</u></i></center></h2>
+<h2><center><i><u>What we do?</u></i></center></h2>
 <br>
 <div class="row text-center">
 

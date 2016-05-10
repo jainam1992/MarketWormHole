@@ -254,12 +254,12 @@ if(session.getAttribute("username")==null){
 				</ul>
 <div class="container">
 <div class="row">
-				<div class="col-md-3">
+				<div class="col-md-6">
 
 				<form name="form1" action="/fetchHighChartsDataServlet"
 					method="POST">
 					<!-- <input type="hidden" name="action" value="checking">  -->
-					<select name="stockSymbol" id="stockSymbol" onchange="stockSelected()">
+					<label><i>	Select Stock:  </i><select name="stockSymbol" id="stockSymbol" onchange="stockSelected()">
 						<option value="AAPL">APPLE Inc.</option>
 						<option value="CSCO">CISCO</option>
 						<option value="DIS">DISNEY</option>
@@ -270,7 +270,7 @@ if(session.getAttribute("username")==null){
 						<option value="RHT">REDHAT</option>
 						<option value="TSLA">TESLA</option>
 						<option value="TWTR">TWITTER</option>
-					</select>
+					</select></label>
 
 				</form>
 				</div>
@@ -283,7 +283,7 @@ if(session.getAttribute("username")==null){
 		</div>
 		</div>
 				
-								
+		<div class="container">
 				<div class="row-fluid sortable">
 				<div class="box span6">
 				
@@ -301,6 +301,7 @@ if(session.getAttribute("username")==null){
 				
 				</div>
 				
+				</div>
 				</div>
 				
 <!-- 					<div id="container-pie-chart" style="height: 200px; min-width: 210px"></div> -->
@@ -363,9 +364,8 @@ if(session.getAttribute("username")==null){
 
 		<p>
 			<span style="text-align: left; float: left">&copy; 2016 <a
-				href="http://themifycloud.com/downloads/janux-free-responsive-admin-dashboard-template/"
-				alt="Bootstrap_Metro_Dashboard">Market Wormhole Responsive
-					Dashboard</a></span>
+				href="fpindex.jsp"
+				alt="Bootstrap_Metro_Dashboard">Market Wormhole</a></span>
 
 		</p>
 

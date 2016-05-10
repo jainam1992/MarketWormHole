@@ -77,9 +77,10 @@ select, input[type="file"] {
 }
 
 select {
-	width: 220px;
-	background-color: #ffffff;
+	width: 120px;
+	background-color: #d8e4e7;
 	border: 1px solid #cccccc;
+	padding-left: 5px;
 }
 
 select[multiple], select[size] {
