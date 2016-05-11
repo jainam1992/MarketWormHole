@@ -14,7 +14,7 @@
 					data-target=".top-nav.nav-collapse,.sidebar-nav.nav-collapse">
 					<span class="icon-bar"></span> <span class="icon-bar"></span> <span
 					class="icon-bar"></span>
-				</a> <a class="brand" href="fpindex.jsp"><span>Market Wormhole</span></a>
+				</a> <a class="brand" href="sample.jsp"><span>Market Wormhole</span></a>
 
 				<!-- start: Header Menu -->
 				<div class="nav-no-collapse header-nav">

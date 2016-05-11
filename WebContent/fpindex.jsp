@@ -171,9 +171,11 @@
 <br>
 <div class="row text-center">
 
+<h4>We provide stock sentiment analysis for students to react & respond to market opinions. We monitor microblogging sites & analyze the overall sentiment.</h4>
+
             <div class="col-md-3 col-sm-6 hero-feature">
                 <div class="thumbnail">
-                    <img src="http://www.smallcapnation.com/images/stories/joomlart/blog/blog-nasdaq-2.png" alt="">
+                    <img src="http://img.clubic.com/032001F403983100-c1-photo-oYToxOntzOjU6ImNvbG9yIjtzOjU6IndoaXRlIjt9-nasdaq.jpg" alt="">
                     <div class="caption">
                         <h3>Monitor</h3>
                         <p>Monitor data from various sources</p>

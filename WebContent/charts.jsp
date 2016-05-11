@@ -223,6 +223,8 @@ if(session.getAttribute("username")==null){
 								class="hidden-tablet"> Charts</span></a></li>
 						<li><a href="tweets.jsp"><i class="icon-list-alt"></i><span
 								class="hidden-tablet"> Tweets</span></a></li>
+						<li><a href="aboutUs.jsp"><i class="icon-list-alt"></i><span
+								class="hidden-tablet"> About us</span></a></li>
 								
 
 					</ul>
@@ -245,7 +247,7 @@ if(session.getAttribute("username")==null){
 
 
 				<ul class="breadcrumb">
-					<li><i class="icon-home"></i> <a href="fpindex.jsp">Home</a> <i
+					<li><i class="icon-home"></i> <a href="sample.jsp">Home</a> <i
 						class="icon-angle-right"></i></li>
 					<li><a href="widgets.jsp">Dashboard</a></li>
 					
@@ -364,7 +366,7 @@ if(session.getAttribute("username")==null){
 
 		<p>
 			<span style="text-align: left; float: left">&copy; 2016 <a
-				href="fpindex.jsp"
+				href="sample.jsp"
 				alt="Bootstrap_Metro_Dashboard">Market Wormhole</a></span>
 
 		</p>

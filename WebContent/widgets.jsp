@@ -70,7 +70,7 @@ if(session.getAttribute("username")==null){
 .label{
 font-size: 15px;
 font-weight: bold;
-padding: 4px 25px 4px;
+padding: 20px 45px 20px;
 }
 
 </style>
@@ -420,6 +420,8 @@ padding: 4px 25px 4px;
 								class="hidden-tablet"> Charts</span></a></li>
 						<li><a href="tweets.jsp"><i class="icon-list-alt"></i><span
 								class="hidden-tablet"> Tweets</span></a></li>
+						<li><a href="aboutUs.jsp"><i class="icon-list-alt"></i><span
+								class="hidden-tablet"> About us</span></a></li>
 								
 
 					</ul>
@@ -442,7 +444,7 @@ padding: 4px 25px 4px;
 
 
 				<ul class="breadcrumb">
-					<li><i class="icon-home"></i> <a href="fpindex.jsp">Home</a> <i
+					<li><i class="icon-home"></i> <a href="sample.jsp">Home</a> <i
 						class="icon-angle-right"></i></li>
 					<li><a href="#">Dashboard</a></li>
 				</ul>
@@ -475,7 +477,7 @@ padding: 4px 25px 4px;
 				<div class="col-md-3">
 				<div id="dynamicTable" align="left"></div>
 		</div>
-				<div class="col-md-3"><b><i>Prediction: </i></b>	
+				<div class="col-md-3">	
 				
 				<span class="label" id="buysell"></span>
 				
@@ -569,7 +571,7 @@ padding: 4px 25px 4px;
 
 		<p>
 			<span style="text-align: left; float: left">&copy; 2016 <a
-				href="fpindex.jsp"
+				href="sample.jsp"
 				alt="Bootstrap_Metro_Dashboard">Market Wormhole</a></span>
 
 		</p>

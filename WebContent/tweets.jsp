@@ -116,15 +116,15 @@ blockquote.twitter-tweet {
   font-weight: bold;
   line-height: 16px;
   border-color: #35CE94;
-  color:#59ADEB;
+  color:#01448B;
   border-radius: 5px;
-  border-style: solid;
+  border-style: double;
   border-width: 6px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
   margin: 10px 5px;
   padding: 16px 16px 16px;
   max-width: 468px;
-  background-color: white;
+  background-color: #D8E4E7;
 }
  
 blockquote.twitter-tweet p {
@@ -176,6 +176,7 @@ blockquote.style1 {
 	<%--  	<% response.setIntHeader("Refresh", 2); %> --%>
 
 	<div class="container-fluid-full">
+	
 		<div class="row-fluid">
 			<hr>
 			<hr>
@@ -204,7 +205,9 @@ blockquote.style1 {
 						<li><a href="tweets.jsp"><i class="icon-list-alt"></i><span
 								class="hidden-tablet"> Tweets</span></a></li>
 								
-
+						<li><a href="aboutUs.jsp"><i class="icon-list-alt"></i><span
+								class="hidden-tablet"> About us</span></a></li>
+						
 					</ul>
 				</div>
 			</div>
@@ -225,7 +228,7 @@ blockquote.style1 {
 
 
 				<ul class="breadcrumb">
-					<li><i class="icon-home"></i> <a href="fpindex.jsp">Home</a> <i
+					<li><i class="icon-home"></i> <a href="sample.jsp">Home</a> <i
 						class="icon-angle-right"></i></li>
 					<li><a href="widgets.jsp">Dashboard</a></li>
 					<li><a href="charts.jsp">Charts</a></li>
@@ -336,7 +339,7 @@ blockquote.style1 {
 
 		<p>
 			<span style="text-align: left; float: left">&copy; 2016 <a
-				href="fpindex.jsp"
+				href="sample.jsp"
 				alt="Bootstrap_Metro_Dashboard">Market Wormhole</a></span>
 
 		</p>

@@ -639,7 +639,7 @@ ul.messages li .message {
 /* Content and Main Elements
 =================================================================== */
 #content {
-	background: #ffffff;
+	background: white;
 	filter: none;
 	min-height: 100%;
 	padding: 20px 20px;
@@ -1465,7 +1465,7 @@ ul.chat.metro li.right .message .arrow {
 =================================================================== */
 .btn {
 	display: inline-block;
-	padding: 6px 12px;
+	padding: 6px 20px;
 	margin-bottom: 0;
 	font-size: 14px;
 	font-weight: 500;
