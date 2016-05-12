@@ -314,7 +314,7 @@
 			
 			<div class="row member-content right">
 				<div class="col-sm-3 col-sm-push-8 member-thumb">
-					<img class="img-responsive img-center img-thumbnail img-circle" src="http://bootdey.com/img/Content/user-453533-fdadfd.png" alt="">
+					<img class="img-responsive img-center img-thumbnail img-circle" src="img/karan.jpg" alt="">
 					<h4>Ram Karan Daga</h4>
 					<p class="title">Back-End Developer</p>
 				</div>
@@ -333,7 +333,7 @@
 			
 			<div class="row member-content">
 				<div class="col-sm-3 col-sm-offset-1 member-thumb">
-					<img class="img-responsive img-center img-thumbnail img-circle" src="http://bootdey.com/img/Content/HexGames349.jpg" alt="">
+					<img class="img-responsive img-center img-thumbnail img-circle" src="img/surabhi.jpg" alt="">
 					<h4>Surabhi Prakash</h4>
 					<p class="title">Back-End Developer</p>
 				</div>
