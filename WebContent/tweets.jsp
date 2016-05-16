@@ -115,11 +115,11 @@ blockquote.twitter-tweet {
   font-size: 14px;
   font-weight: bold;
   line-height: 16px;
-  border-color: #35CE94;
-  color:#01448B;
+  border-color: black;
+  color:black;
   border-radius: 5px;
-  border-style: double;
-  border-width: 6px;
+  border-style: solid;
+  border-width: 3px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
   margin: 10px 5px;
   padding: 16px 16px 16px;
@@ -145,6 +145,12 @@ blockquote.twitter-tweet a:focus {
   text-decoration: underline;
 }
 
+blockquote:nth-child(odd){ /*for first blockquote */
+  background-color: #D9534F;
+}
+blockquote:nth-child(even){ /*for second blockquote */
+   background-color: #5CB85C;
+}
 
 
 blockquote.style1 {
@@ -165,6 +171,14 @@ blockquote.style1 {
     	background-repeat: no-repeat;
     	background-position: bottom right;
   	}
+  	
+ blockquote:sentiment(positive){ /*for first blockquote */
+  background-color: green;
+}
+blockquote:sentiment(negative){ /*for second blockquote */
+   background-color: red;
+} 	
+  	
 </style>
 </head>
 

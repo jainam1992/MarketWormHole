@@ -47,7 +47,7 @@ public class fetchTweets extends HttpServlet {
 					"cmpe295b");
 			String stockSymbol = request.getParameter("stockSymbol");
 			stmt = conn.createStatement();
-			String query = "SELECT message FROM messages.twitter WHERE symbol='"+stockSymbol+"' ORDER BY id DESC LIMIT 15";
+			String query = "SELECT message,score FROM messages.twitter WHERE symbol='"+stockSymbol+"' ORDER BY id DESC LIMIT 15";
 			ResultSet rs = null;
 			rs = stmt.executeQuery(query);
 			System.out.println("hello"+rs);
